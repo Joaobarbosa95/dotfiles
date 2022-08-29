@@ -127,17 +127,13 @@ export NVM_DIR="$HOME/.nvm"
 # set ls colors 
 LS_COLORS=$LS_COLORS:'di=1;31' ; export LS_COLORS
 
-
 export DISPLAY=:0.0
 
 export PATH="$PATH:`yarn global bin`"
 
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-  exec tmux attach
+    exec tmux 
 fi
 
-# tmux alias
 alias tls='tmux ls'
-
-# dotfiles git alias
-alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+alias exit='tmux detach'
